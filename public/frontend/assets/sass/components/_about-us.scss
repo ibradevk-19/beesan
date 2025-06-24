@@ -1,0 +1,38 @@
+.about-us {
+  position: relative;
+  &-shape {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    inset-inline-end: 50%;
+    transform: translate(50%, -50%);
+    @include md {
+      width: 200px;
+      height: 200px;
+    }
+  }
+  &-image {
+    border-radius: 8px;
+    height: 442px;
+    overflow: hidden;
+    @include md {
+      height: 300px;
+    }
+  }
+  &-content {
+    height: 100%;
+    position: relative;
+    h2 {
+      margin-bottom: 35px;
+    }
+  }
+}
+
+html[lang='ar'] {
+  .about-us {
+    &-shape {
+      transform: translate(-50%, -50%);
+    }
+  }
+}

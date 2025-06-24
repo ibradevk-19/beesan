@@ -1,0 +1,21 @@
+.not-found {
+  padding: 100px 0;
+  @include md {
+    padding: 65px 0;
+  }
+  &-inner {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include md {
+      height: 500px;
+    }
+  }
+}
+.not-found-image {
+  max-width: 800px;
+  max-height: 800px;
+  overflow: hidden;
+}

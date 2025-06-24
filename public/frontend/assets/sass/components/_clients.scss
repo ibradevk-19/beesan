@@ -1,0 +1,19 @@
+.clients {
+  &-top-section {
+    margin-bottom: 50px;
+    @include sm {
+      margin-bottom: 30px;
+    }
+  }
+}
+.client-slide {
+  height: 128px;
+  overflow: hidden;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  @include md {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,82 @@
+.services {
+  position: relative;
+  padding-bottom: 80px;
+  &::after {
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 415px;
+    position: absolute;
+    background-color: $primary-light-color;
+    z-index: -1;
+  }
+  &-shape {
+    width: 283px;
+    height: 278px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    inset-inline-start: 0;
+  }
+  &-items {
+    position: relative;
+    z-index: 1;
+    margin-top: 30px;
+  }
+}
+
+.service-item {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  background-color: $white-color;
+  box-shadow: 3px 3px 16.5px -0.75px rgba(122, 122, 122, 0.25);
+  border-radius: 11px;
+  overflow: hidden;
+  &-image {
+    display: block;
+    height: 240px;
+    overflow: hidden;
+    @include sm {
+      height: 180px;
+    }
+    img {
+      transition: all 0.7s ease-in-out;
+    }
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+  &-content {
+    flex: 1;
+    padding: 25px;
+
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    @include sm {
+      padding: 15px 5px;
+    }
+    & > div {
+      &:first-child {
+        flex: 1;
+      }
+    }
+    h4 {
+      margin-bottom: 10px;
+      color: $primary-color;
+    }
+    p {
+      margin-bottom: 20px;
+      @include noOfLines(3);
+    }
+    a {
+      align-self: center;
+    }
+  }
+}

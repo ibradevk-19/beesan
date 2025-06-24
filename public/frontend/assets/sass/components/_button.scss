@@ -1,0 +1,31 @@
+.custom-btn {
+  background-color: $primary-color;
+  padding: 10px 16px;
+  color: $white-color;
+  border-radius: 7.5px;
+
+  border: 1px solid $primary-color;
+  font-size: var(--btn-font-size);
+  &--with-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    @include sm {
+      svg {
+        transform: scale(0.8);
+      }
+    }
+  }
+  path {
+    transition: all 0.3s ease-in-out;
+  }
+  &:hover {
+    background-color: $white-color;
+    color: $primary-color;
+    path {
+      fill: $primary-color;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+.services-page-section {
+  margin-top: 80px;
+  .services-slide {
+    padding: 20px 10px;
+  }
+  .services-items {
+    position: relative;
+  }
+  .slick-arrow {
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $dark-primary-color;
+    border-radius: 50%;
+    &::before {
+      display: none;
+    }
+  }
+  .slick-next,
+  .slick-prev {
+    @include sm {
+      display: none !important;
+    }
+  }
+}
+
+.services-bottom {
+  &-image {
+    height: 380px;
+    overflow: hidden;
+    border-radius: 8px;
+    @include md {
+      height: 300px;
+    }
+  }
+  &-content {
+    p {
+      font-weight: $light;
+    }
+  }
+}
+html[lang='ar'] {
+  .services-page-section {
+    .slick-arrow {
+      svg {
+        transform: scale(-1, 1);
+      }
+    }
+  }
+}

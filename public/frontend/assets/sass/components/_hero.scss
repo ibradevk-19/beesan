@@ -1,0 +1,147 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  &-top-shape-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  &-top-shape {
+    padding: 10px 20px;
+    margin-bottom: 15px;
+    background-color: rgba($color: $dark-primary-color, $alpha: 0.9);
+    border-radius: 50px;
+    display: flex;
+    gap: 9px;
+    align-items: center;
+    h3 {
+      font-weight: bold;
+      font-size: var(--parag-font-size);
+    }
+  }
+
+  .slick-arrow {
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $dark-primary-color;
+    border-radius: 50%;
+    border: 1px solid $dark-primary-color;
+    &::before {
+      display: none;
+    }
+    &:hover {
+      border-color: $primary-color;
+      background-color: $primary-light-color;
+      path {
+        fill: $primary-color;
+      }
+    }
+  }
+  .slick-next,
+  .slick-prev {
+    @include sm {
+      display: none !important;
+    }
+  }
+  .slick-next {
+    left: unset;
+    right: unset;
+    inset-inline-start: 10px;
+  }
+  .slick-prev {
+    left: unset;
+    right: unset;
+    inset-inline-end: 10px;
+  }
+}
+
+.hero-slide {
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: $dark-primary-color, $alpha: 0.3);
+    z-index: -1;
+  }
+  &-content {
+    min-height: calc(100vh - 40px);
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: $white-color;
+    text-align: center;
+    padding-top: 180px;
+    padding-bottom: 100px;
+    p {
+      color: $white-color;
+    }
+    button {
+      margin-top: 35px;
+    }
+    @include md {
+      padding-top: 100px;
+      padding-bottom: 50px;
+    }
+    @include sm {
+      min-height: calc(500px);
+    }
+  }
+}
+
+.slick-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  li {
+    width: auto;
+    height: auto;
+    margin: 0;
+    button {
+      width: 7px;
+      height: 7px;
+      background-color: rgba($color: $primary-color, $alpha: 0.51);
+      border-radius: 10px;
+      transition: width 0.3s ease;
+      &::before {
+        display: none;
+      }
+    }
+    &.slick-active {
+      button {
+        width: 20px;
+        flex: 0 0 20px;
+        background-color: $primary-color;
+      }
+    }
+  }
+}
+
+.hero-slider.hero-slider {
+  margin-bottom: 0;
+  .slick-dots {
+    margin-top: 15px;
+    bottom: 0;
+    position: relative;
+  }
+}
+
+html[lang='ar'] {
+  .hero {
+    .slick-arrow {
+      svg {
+        transform: scale(-1, 1);
+      }
+    }
+  }
+}

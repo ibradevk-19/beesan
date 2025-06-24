@@ -1,0 +1,78 @@
+/* ======= variables ======= */
+
+/* ======= font-sizes ======= */
+:root {
+  --theme-font: 'GE SS Two', sans-serif;
+  --nav-height: 100px;
+  --body-font-size: 16px;
+  --h1-font-size: 45px;
+  --h2-font-size: 28px;
+  --h3-font-size: 22.5px;
+  --h4-font-size: 18px;
+  --h5-font-size: 17px;
+  --h6-font-size: 14px;
+  --nav-links-font-size: 17px;
+  --parag-font-size: 16px;
+  --btn-font-size: 16px;
+  --menu-links-font-size: 40px;
+  --swiper-pagination-top: 75%;
+  --font-size-14: 14px;
+  --font-size-13: 13px;
+  --font-size-12: 12px;
+  --font-size-15: 15px;
+  --font-size-16: 16px;
+  --font-size-47: 47px;
+  --font-size-18: 18px;
+  --font-size-20: 20px;
+  --font-size-21: 21px;
+  --font-size-22: 22px;
+  --font-size-24: 24px;
+  --font-size-25: 25px;
+  --font-size-32: 32px;
+
+  @include md {
+    --h1-font-size: 40px;
+    --h2-font-size: 24px;
+  }
+  @include sm {
+    --h1-font-size: 30px;
+    --h2-font-size: 20px;
+    --parag-font-size: 14px;
+    --btn-font-size: 15px;
+    --font-size-24: 20px;
+    --h3-font-size: 18px;
+    --h4-font-size: 16px;
+    --h5-font-size: 15px;
+    --font-size-18: 16px;
+  }
+}
+
+html[lang='en'] {
+  --theme-font: 'Swis721 Cn BT', sans-serif;
+}
+
+/* ======= colors======= */
+
+$white-color: #fff;
+$black-color: #000;
+$primary-color: #1d8751;
+$primary-color-bold: #366531;
+$primary-light-color: #d7eeda;
+$dark-primary-color: #0c321e;
+$text-color: #000;
+$nav-links-color: #061c11;
+$grey-color: #9f9f9f;
+$grey-light-color: #faf9f5;
+$grey-bold-color: #666666;
+
+// Font Weights
+$extra-light: 200;
+$light: 300;
+$normal: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+$extra-bold: 800;
+$extra-extra-bold: 900;
+// Transitions
+$half-second-transition: all 0.5s;

@@ -1,0 +1,128 @@
+// responsive style mixins
+// small mobile Screen
+@mixin xxs {
+  @media (max-width: 380.9px) {
+    @content;
+  }
+}
+// mobile Screen
+@mixin xs {
+  @media (max-width: 575.9px) {
+    @content;
+  }
+}
+// sm Screen
+@mixin sm {
+  @media (max-width: 767.9px) {
+    @content;
+  }
+}
+
+// tablet Screen
+@mixin md {
+  @media (max-width: 991.9px) {
+    @content;
+  }
+}
+
+// laptop Screen
+@mixin lg {
+  @media (max-width: 1199.9px) {
+    @content;
+  }
+}
+
+// desktop Screen
+@mixin xl {
+  @media (max-width: 1439px) {
+    @content;
+  }
+}
+// xxl desktop Screen
+@mixin xxl {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin text($fontSize, $fontWeight, $color) {
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  color: $color;
+}
+
+// no of lines mixin to limit the number of lines by css
+@mixin noOfLines($no) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $no;
+  -webkit-box-orient: vertical;
+}
+
+// mobile first
+// small mobile Screen
+@mixin xxs {
+  @media (min-width: 320px) {
+    @content;
+  }
+}
+// mobile Screen
+@mixin xs-mobile {
+  @media (min-width: 480px) {
+    @content;
+  }
+}
+// sm Screen
+@mixin sm-mobile {
+  @media (min-width: 576px) {
+    @content;
+  }
+}
+
+// tablet Screen
+@mixin md-mobile {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+// laptop Screen
+@mixin lg-mobile {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+
+// desktop Screen
+@mixin xl-mobile {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+// xxl desktop Screen
+@mixin xxl-mobile {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin img-cover {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+@mixin full-w-h {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin fill-absolute {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+}

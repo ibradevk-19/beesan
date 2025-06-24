@@ -1,0 +1,23 @@
+.section-title {
+  color: $primary-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  font-size: var(--font-size-24);
+
+  span {
+    padding-inline-start: 31px;
+    position: relative;
+    display: inline-block;
+    &::before {
+      content: '';
+      position: absolute;
+      inset-inline-start: -10px;
+      width: 31px;
+      height: 2px;
+      top: 50%;
+      background-color: $primary-color;
+    }
+  }
+}

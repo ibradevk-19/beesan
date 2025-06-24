@@ -1,0 +1,86 @@
+.contact-us {
+  &-top {
+    margin-bottom: 50px;
+  }
+  &-form {
+    background-color: $white-color;
+    box-shadow: 1.5px 3px 10.05px rgba(84, 84, 84, 0.18);
+    border-radius: 12px;
+    padding: 33px 15px;
+
+    label {
+      font-size: 12px;
+      font-size: var(--font-size-12);
+    }
+    input,
+    textarea {
+      background: #f9fafb;
+      border: 1px solid rgba($color: $black-color, $alpha: 0.12);
+      border-radius: 16px;
+      font-size: var(--font-size-14);
+      padding: 12px 16px;
+      font-weight: $light;
+      &:focus {
+        box-shadow: 0 0 0 0.25rem rgba($color: $primary-color, $alpha: 0.1);
+        border-color: $primary-color;
+      }
+    }
+    .submit-wrap {
+      margin-top: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .invalid-feedback {
+      font-size: var(--font-size-12);
+    }
+  }
+  &-map {
+    height: 290px;
+    overflow: hidden;
+  }
+  &-social {
+    background-color: $primary-color;
+    padding: 50px;
+    border-radius: 8px;
+    margin-top: 20px;
+    @include md {
+      padding: 30px;
+    }
+  }
+  &-info {
+    li {
+      display: flex;
+      align-items: center;
+      color: $white-color;
+      gap: 10px;
+      justify-content: flex-end;
+      a {
+        color: $white-color;
+      }
+    }
+  }
+  &-social-media {
+    ul {
+      gap: 30px !important;
+      @include lg {
+        justify-content: flex-end;
+      }
+    }
+  }
+}
+html[lang='ar'] {
+  .form-control.is-invalid,
+  .was-validated .form-control:invalid {
+    background-position: left calc(0.375em + 0.1875rem) center;
+    padding-right: 12px;
+    padding-left: calc(1.5em + 0.75rem);
+  }
+  .was-validated textarea.form-control:invalid,
+  textarea.form-control.is-invalid {
+    padding-right: 12px;
+    padding-left: calc(1.5em + 0.75rem);
+    background-position: top calc(0.375em + 0.1875rem) left
+      calc(0.375em + 0.1875rem);
+  }
+}

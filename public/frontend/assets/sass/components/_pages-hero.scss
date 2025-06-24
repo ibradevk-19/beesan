@@ -1,0 +1,53 @@
+.pages-hero {
+  position: relative;
+  margin-top: 101px;
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: $black-color, $alpha: 0.7);
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  @include md {
+    margin-top: 76px;
+  }
+  &-content {
+    position: relative;
+    z-index: 10;
+    color: $white-color;
+    min-height: 307px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .breadcrumb {
+    margin-top: 15px;
+    margin-bottom: 0;
+    ol {
+      margin-top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+    }
+  }
+}
+
+html[lang='ar'] {
+  .breadcrumb-item {
+    color: $white-color;
+  }
+  .breadcrumb-item + .breadcrumb-item::before {
+    float: right;
+    padding-right: unset;
+    padding-inline-end: 0.5rem;
+    color: $white-color;
+  }
+  .breadcrumb-item + .breadcrumb-item {
+    padding-left: 0;
+    padding-right: 5px;
+  }
+}
