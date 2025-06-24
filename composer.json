@@ -29,7 +29,6 @@
         "spatie/laravel-varnish": "*",
         "wemersonjanuario/wkhtmltopdf-windows": "0.12.2.3",
         "yajra/laravel-datatables-oracle": "~9.0",
-        "rexlabs/enum": "^3.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
