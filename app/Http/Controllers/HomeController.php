@@ -62,16 +62,17 @@ class HomeController extends Controller
 
         $aboutData = AboutData::first();
         $settings = SiteSetting::first(); // نفترض أن هناك سجل واحد فقط
-        return view('frontend.home')->with([
-            'sliders' => $sliders,
-            'clients' => $clients,
-            'featuredArticle' => $featuredArticle,
-            'articles' => $articles,
-            'aboutData' => $aboutData,
-            'settings' => $settings,
-            'description' => null,
-            'page_title' => __('Home'),
-        ]);
+        // return view('frontend.home')->with([
+        //     'sliders' => $sliders,
+        //     'clients' => $clients,
+        //     'featuredArticle' => $featuredArticle,
+        //     'articles' => $articles,
+        //     'aboutData' => $aboutData,
+        //     'settings' => $settings,
+        //     'description' => null,
+        //     'page_title' => __('Home'),
+        // ]);
+        return view('home-main');
     }
 
 
