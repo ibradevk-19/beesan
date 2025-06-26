@@ -1,6 +1,6 @@
 <?php
 
-//use App\Http\Controllers\MembertestController;
+use App\Http\Controllers\Api\HomeController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +19,4 @@ use Illuminate\Support\Facades\Route;
     return $request->user();
 }); */
 
-Route::get('ping',function (){
-    return 'pong';
-});
-include_once('api-v1.php');
+Route::get('home', [HomeController::class, 'index']);
