@@ -20,3 +20,7 @@ use Illuminate\Support\Facades\Route;
 }); */
 
 Route::get('home', [HomeController::class, 'index']);
+Route::get('about', [HomeController::class, 'about']);
+Route::get('projects', [HomeController::class, 'projects']);
+Route::get('news', [HomeController::class, 'news']);
+Route::get('news/{id}', [HomeController::class, 'newsDetiles']);

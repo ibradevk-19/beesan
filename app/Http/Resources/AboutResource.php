@@ -11,6 +11,7 @@ class AboutResource extends JsonResource
         $locale = app()->getLocale();
 
         return [
+            'id' => $this->id,
             'title' => $this->title[$locale] ?? '',
             'body' => $this->body[$locale] ?? '',
             'button' => $this->button[$locale] ?? '',

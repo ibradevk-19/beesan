@@ -17,13 +17,14 @@ class ApiLanguageHandler
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->has('user-language')) {
-            config('app.locale', $request->get('user-language'));
-            config('app.faker_locale', $request->get('user-language'));
-            Carbon::setLocale($request->get('user-language'));
+        if ($request->headers->get('Accept-Language')) {
+            config('app.locale', $request->headers->get('Accept-Language'));
+            \App::setLocale($request->headers->get('Accept-Language'));
+            Carbon::setLocale($request->headers->get('Accept-Language'));
         } else {
             config('app.locale', 'ar');
             config('app.faker_locale', 'ar');
+            \App::setLocale('ar');
             Carbon::setLocale('ar');
         }
         return $next($request);
