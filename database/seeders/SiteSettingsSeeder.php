@@ -56,6 +56,22 @@ class SiteSettingsSeeder extends Seeder
             'telegram_url' => 'https://t.me/yourchannel',
             'created_at' => now(),
             'updated_at' => now(),
+
+            'hero_title' => json_encode([
+                'ar' => 'نص تعريفي في الفوتر',
+                'en' => 'Footer bio text'
+            ]),
+
+            'hero_body' => json_encode([
+                'ar' => 'نص تعريفي في الفوتر',
+                'en' => 'Footer bio text'
+            ]),
+            'hero_image' => 'logos/main-logo.png',
+            'beneficiaries_count' => 120,
+            'project_count' => 120,
+            'partner_count' => 120,
+            'years_experience_count' => 120
+              
         ]);
     }
 }

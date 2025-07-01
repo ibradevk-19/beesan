@@ -22,7 +22,10 @@ class AboutData extends Model
         'image_path',
         'message_image',
         'vision_image',
-        'cover_image'
+        'cover_image',
+        'history_section',
+        'team_section',
+        'our_roles_section'
     ];
 
     protected $casts = [
@@ -30,7 +33,10 @@ class AboutData extends Model
         'body' => 'array',
         'button' => 'array',
         'message' => 'array',
-        'vision' => 'array'
+        'vision' => 'array',
+        'history_section' => 'array',
+        'team_section' => 'array',
+        'our_roles_section' => 'array'
     ];
 
     public function getTranslatedTitleAttribute()

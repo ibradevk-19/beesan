@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProjectResource extends JsonResource
+class ReportResource extends JsonResource
 {
     public function toArray($request)
     {
@@ -15,12 +15,9 @@ class ProjectResource extends JsonResource
             'title' => $this->title[$locale] ?? '',
             'body' => $this->body[$locale] ?? '',
             'image' => $this->image ? asset('storage/' . $this->image) : null,
-            'start_date' => $this->start_date,
-            'end_date' => $this->end_date,
-            'status' => 'end',
-            'beneficiaries_count' => 100,
-            'location' => 'gaza',
-            'budgeit' => 1522.444,
+            'file' => $this->file ? asset('storage/' . $this->file) : null,
+            'date' => $this->date,
+            'tag' => $this->tag,
         ];
     }
 }

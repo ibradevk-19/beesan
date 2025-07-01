@@ -19,7 +19,7 @@ class CreateReportsTable extends Migration
             $table->json('body')->nullable();
             $table->string('file')->nullable();
             $table->string('image')->nullable();
-            $table->string('dateS')->nullable();
+            $table->string('date')->nullable();
             $table->timestamps();
         });
     }

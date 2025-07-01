@@ -9,26 +9,33 @@ use App\Http\Resources\ArticleResource;
 use App\Http\Resources\ClientResource;
 use App\Http\Resources\ProjectResource;
 use App\Http\Resources\NewsResource;
+use App\Http\Resources\ReportResource;
+use App\Http\Resources\SiteSettingResource;
 use App\Models\AboutData;
 use App\Models\Article;
 use App\Models\Client;
 use App\Models\Project;
+use App\Models\SiteSetting;
+use App\Models\Report;
+use App\Models\Contact;
 
 class HomeController extends Controller
 {
     public function index()
     {
+        $locale = app()->getLocale();
+        $siteSetting = SiteSetting::first();
         $hero = [
-            'title' => '',
-            'sub_title' => '',
-            'image' => ''
+            'title' => $siteSetting->hero_title[$locale] ?? null,
+            'hero_body' => $siteSetting->hero_title[$locale] ?? null,
+            'hero_image' => $siteSetting->hero_image ? asset('storage/' . $siteSetting->hero_image) : null,
         ];
 
         $statistics = [
-            'beneficiaries_count' => 150,
-            'project_count' => 456,
-            'partner_count' => 15,
-            'years_experience_count' => 15 
+            'beneficiaries_count' => $siteSetting->beneficiaries_count ?? 0,
+            'project_count' => $siteSetting->project_count ?? 0,
+            'partner_count' => $siteSetting->partner_count ?? 0,
+            'years_experience_count' => $siteSetting->years_experience_count ?? 0 
         ];
 
         $about = new AboutResource(AboutData::first());
@@ -46,6 +53,7 @@ class HomeController extends Controller
                 'about' => $about,
                 'articles' => $articles,
                 'clients' => $clients,
+                'site_setting' => new SiteSettingResource($siteSetting)
             ],
             'error' => [null]
         ]);
@@ -56,15 +64,12 @@ class HomeController extends Controller
     {
         $about = new AboutResource(AboutData::first());
 
+
         return response()->json([
             'status' => true,
             'message' => __('Success'),
             'data' => [
                 'about' => $about,
-                'team' => $statistics,
-                'about' => $about,
-                'articles' => $articles,
-                'clients' => $clients,
             ],
             'error' => [null]
         ]);
@@ -74,7 +79,7 @@ class HomeController extends Controller
     public function projects(Request $request)
     {
          $limit = $request->has('limit') ? $request->get('limit') : 1;
-        $projects = ProjectResource::collection(Project::paginate($limit));
+         $projects = ProjectResource::collection(Project::paginate($limit));
 
         return response()->json([
             'status' => true,
@@ -132,6 +137,47 @@ class HomeController extends Controller
                 'error' => [null]
             ]);
         }
+    }
+
+
+    public function reports(Request $request)
+    {
+         $limit = $request->has('limit') ? $request->get('limit') : 1;
+         if($request->has('tag')){
+             $data = ReportResource::collection(Report::where('tag',$request->tag)->get());
+         }else{
+             $data = ReportResource::collection(Report::get());
+         }
+         
+         
+
+        return response()->json([
+            'status' => true,
+            'message' => __('Success'),
+            'data' => [
+                'reports' => $data,
+            ],
+            'error' => [null]
+        ]);
+    }
+
+
+    public function contact(Request $request)
+    {
+        Contact::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'text' => $request->text,
+            'number' => $request->number,
+        ]);
+
+        return response()->json([
+            'status' => true,
+            'message' => __('Success'),
+            'data' => [null],
+            'error' => [null]
+        ]);
     }
 }
 

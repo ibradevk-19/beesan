@@ -34,6 +34,15 @@ class SiteSetting extends Model
         'projects_title',
         'projects_body',
         'projects_image',
+
+        'beneficiaries_count',
+        'project_count',
+        'partner_count',
+        'years_experience_count',
+
+        'hero_image',
+        'hero_title',
+        'hero_body'
     ];
 
 
@@ -51,6 +60,8 @@ class SiteSetting extends Model
         'projects_body' => 'array',
         'services_title' => 'array',
         'services_body' => 'array',
+        'hero_title' => 'array',
+        'hero_body' => 'array',
     ];
 
 
