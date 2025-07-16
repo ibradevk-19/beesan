@@ -27,7 +27,7 @@ class HomeController extends Controller
         $siteSetting = SiteSetting::first();
         $hero = [
             'title' => $siteSetting->hero_title[$locale] ?? null,
-            'hero_body' => $siteSetting->hero_title[$locale] ?? null,
+            'hero_body' => $siteSetting->hero_body[$locale] ?? null,
             'hero_image' => $siteSetting->hero_image ? asset('storage/' . $siteSetting->hero_image) : null,
         ];
 
@@ -176,6 +176,21 @@ class HomeController extends Controller
             'status' => true,
             'message' => __('Success'),
             'data' => [null],
+            'error' => [null]
+        ]);
+    }
+
+
+    public function footer(Request $request)
+    {
+                  
+        $siteSetting = SiteSetting::first();
+        return response()->json([
+            'status' => true,
+            'message' => __('Success'),
+            'data' => [
+               'site_setting' => new SiteSettingResource($siteSetting)
+            ],
             'error' => [null]
         ]);
     }

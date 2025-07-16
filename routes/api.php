@@ -26,3 +26,5 @@ Route::get('news', [HomeController::class, 'news']);
 Route::get('news/{id}', [HomeController::class, 'newsDetiles']);
 Route::get('reports', [HomeController::class, 'reports']);
 Route::post('contact', [HomeController::class, 'contact']);
+Route::get('footer', [HomeController::class, 'footer']);
+

@@ -47,10 +47,19 @@ class StoreSiteSettingRequest extends FormRequest
             'bg_logo' => 'nullable|image',
             'projects_image' => 'nullable|image',
             'services_image' => 'nullable|image',
-            'services_title' => 'required|array',
-            'services_body' => 'required|array',
-            'projects_title' => 'required|array',
-            'projects_body' => 'required|array',
+            'services_title' => 'nullable|array',
+            'services_body' => 'nullable|array',
+            'projects_title' => 'nullable|array',
+            'projects_body' => 'nullable|array',
+
+            'hero_title' => 'nullable|array',
+            'hero_body' => 'nullable|array',
+            'hero_image' => 'nullable|image',
+            
+            'beneficiaries_count' => 'nullable',
+            'project_count' => 'nullable',
+            'partner_count' => 'nullable',
+            'years_experience_count' => 'nullable',
 
         ];
     }

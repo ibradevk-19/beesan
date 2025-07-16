@@ -24,7 +24,7 @@ class SiteSettingController extends Controller
         $settings = SiteSetting::first();
         $data = $request->validated();
     
-        foreach (['main_logo', 'footer_logo', 'bg_logo','services_image','projects_image'] as $logoField) {
+        foreach (['main_logo', 'footer_logo', 'bg_logo','services_image','projects_image','hero_image'] as $logoField) {
             if ($request->hasFile($logoField)) {
                 if ($settings->$logoField && Storage::disk('public')->exists($settings->$logoField)) {
                     Storage::disk('public')->delete($settings->$logoField);

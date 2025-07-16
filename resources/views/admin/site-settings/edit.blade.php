@@ -148,7 +148,7 @@
 
 
                 {{-- الصور --}}
-                @foreach (['main_logo' => 'الشعار الرئيسي', 'footer_logo' => 'شعار الفوتر', 'bg_logo' => 'شعار الخلفية' , 'projects_image' => ' صورة صفحة المشاريع','services_image'=> 'صورة صفحة الخدمات'] as $field => $label)
+                @foreach (['main_logo' => 'الشعار الرئيسي', 'footer_logo' => 'شعار الفوتر', 'bg_logo' => 'شعار الخلفية' , 'projects_image' => ' صورة صفحة المشاريع','services_image'=> 'صورة صفحة الخدمات','hero_image'=> 'صورة القسم الرائيسي '] as $field => $label)
                     <div class="mb-3">
                         <label class="form-label">{{ $label }}</label>
                         <input type="file" name="{{ $field }}" class="form-control">
@@ -201,7 +201,45 @@
                 </div>
 
 
-          
+               <div class="mb-3">
+                    <label class="form-label">العنوان القسم الرائيسي  (عربي)</label>
+                    <input type="text" name="hero_title[ar]" class="form-control" value="{{ val($settings->hero_title, 'ar') }}">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">العنوان  القسم الرائيسي (إنجليزي)</label>
+                    <input type="text" name="hero_title[en]" class="form-control" value="{{ val($settings->hero_title, 'en') }}">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">محتوى القسم  الرائيسي  (عربي)</label>
+                    <input type="text" name="hero_body[ar]" class="form-control" value="{{ val($settings->hero_body, 'ar') }}">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">محتوى  القسم الرائيسي (إنجليزي)</label>
+                    <input type="text" name="hero_body[en]" class="form-control" value="{{ val($settings->hero_body, 'en') }}">
+                </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">  اجمالي المستفدين</label>
+                    <input type="number" min="1" name="beneficiaries_count" class="form-control" value="{{ $settings->beneficiaries_count }}">
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label">  اجمالي المشاريع</label>
+                    <input type="number" min="1" name="project_count" class="form-control" value="{{ $settings->beneficiaries_count }}">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">  عدد الشركاء </label>
+                    <input type="number" min="1" name="partner_count" class="form-control" value="{{ $settings->beneficiaries_count }}">
+                </div>
+
+                 <div class="mb-3">
+                    <label class="form-label">  سنوات الخبراء  </label>
+                    <input type="number" min="1" name="years_experience_count" class="form-control" value="{{ $settings->beneficiaries_count }}">
+                </div>
+                   
                 <div class="text-end">
                     <button type="submit" class="btn btn-primary">حفظ التعديلات</button>
                 </div>
