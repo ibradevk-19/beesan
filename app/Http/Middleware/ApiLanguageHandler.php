@@ -15,18 +15,26 @@ class ApiLanguageHandler
      * @param \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next)
+    // public function handle(Request $request, Closure $next)
+    // {
+    //     if ($request->headers->get('Accept-Language')) {
+    //         config('app.locale', $request->headers->get('Accept-Language'));
+    //         \App::setLocale($request->headers->get('Accept-Language'));
+    //         Carbon::setLocale($request->headers->get('Accept-Language'));
+    //     } else {
+    //         config('app.locale', 'ar');
+    //         config('app.faker_locale', 'ar');
+    //         \App::setLocale('ar');
+    //         Carbon::setLocale('ar');
+    //     }
+    //     return $next($request);
+    // }
+     public function handle(Request $request, Closure $next)
     {
-        if ($request->headers->get('Accept-Language')) {
-            config('app.locale', $request->headers->get('Accept-Language'));
-            \App::setLocale($request->headers->get('Accept-Language'));
-            Carbon::setLocale($request->headers->get('Accept-Language'));
-        } else {
-            config('app.locale', 'ar');
-            config('app.faker_locale', 'ar');
-            \App::setLocale('ar');
-            Carbon::setLocale('ar');
-        }
+        $lang = $request->header('set_language', 'ar'); // اللغة المطلوبة أو 'ar' افتراضيًا
+        app()->setLocale($lang);              // ✅ اللغة الفعلية
+        Carbon::setLocale($lang);             // ✅ لتنسيقات التواريخ
+
         return $next($request);
     }
 }

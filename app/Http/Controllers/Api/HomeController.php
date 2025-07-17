@@ -110,7 +110,7 @@ class HomeController extends Controller
             'status' => true,
             'message' => __('Success'),
             'data' => [
-                'featured_article' => new NewsResource($featuredArticle),
+                'featured_article' => $featuredArticle != null ? new NewsResource($featuredArticle) : null,
                 'articles' => NewsResource::collection($articles),
             ],
             'error' => [null]

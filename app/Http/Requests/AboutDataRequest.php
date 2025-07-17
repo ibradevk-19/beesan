@@ -51,6 +51,8 @@ class AboutDataRequest extends FormRequest
             'text_tow' => 'nullable|array',
             'text_tow.ar' => 'nullable|string',
             'text_tow.en' => 'nullable|string',
+            'history_section' => 'nullable',
+            'team_section' => 'nullable'
         ];
     }
 }

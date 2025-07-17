@@ -161,6 +161,89 @@
                                    id="cover_image" data-text="تصفح..">
                         </div>
                     </div>
+                    <hr>
+<h4 class="mb-3">قسم التاريخ (history_section)</h4>
+<div id="history-section-wrapper">
+    @foreach ($data->history_section ?? [['title' => ['ar' => '', 'en' => ''], 'description' => ['ar' => '', 'en' => '']]] as $index => $history)
+        <div class="card p-3 mb-3 border" data-index="{{ $index }}">
+            <div class="row mb-2">
+                <div class="col-md-6">
+                    <label>العنوان (عربي)</label>
+                    <input type="text" name="history_section[{{ $index }}][title][ar]" class="form-control" value="{{ $history['title']['ar'] ?? '' }}">
+                </div>
+                <div class="col-md-6">
+                    <label>العنوان (إنجليزي)</label>
+                    <input type="text" name="history_section[{{ $index }}][title][en]" class="form-control" value="{{ $history['title']['en'] ?? '' }}">
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-6">
+                    <label>الوصف (عربي)</label>
+                    <textarea name="history_section[{{ $index }}][description][ar]" class="form-control">{{ $history['description']['ar'] ?? '' }}</textarea>
+                </div>
+                <div class="col-md-6">
+                    <label>الوصف (إنجليزي)</label>
+                    <textarea name="history_section[{{ $index }}][description][en]" class="form-control">{{ $history['description']['en'] ?? '' }}</textarea>
+                </div>
+            </div>
+            <button type="button" class="btn btn-danger btn-sm remove-history-item">حذف</button>
+        </div>
+    @endforeach
+</div>
+<button type="button" id="add-history-item" class="btn btn-outline-secondary mb-4">إضافة تاريخ جديد</button>
+
+
+<hr>
+<h4 class="mb-3">فريق العمل (team_section)</h4>
+<div id="team-section-wrapper">
+    
+    @foreach ($data->team_section ?? [['image' => '', 'name' => ['ar' => '', 'en' => ''], 'position' => ['ar' => '', 'en' => ''], 'bio' => ['ar' => '', 'en' => '']]] as $index => $team)
+        <div class="card p-3 mb-3 border" data-index="{{ $index }}">
+            <div class="row mb-2">
+                <div class="col-md-12">
+                    <label>صورة العضو</label>
+                    <input type="file" name="team_section[{{ $index }}][image]" class="form-control"
+                        onchange="previewImage(this, 'team-preview-{{ $index }}')">
+                    <img id="team-preview-{{ $index }}" style="max-width: 150px; margin-top:10px;"
+                         src="{{ $team['image'] ? asset('storage/' . $team['image']) : '' }}">
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-6">
+                    <label>الاسم (عربي)</label>
+                    <input type="text" name="team_section[{{ $index }}][name][ar]" class="form-control" value="{{ $team['name']['ar'] ?? '' }}">
+                </div>
+                <div class="col-md-6">
+                    <label>الاسم (إنجليزي)</label>
+                    <input type="text" name="team_section[{{ $index }}][name][en]" class="form-control" value="{{ $team['name']['en'] ?? '' }}">
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-6">
+                    <label>الوظيفة (عربي)</label>
+                    <input type="text" name="team_section[{{ $index }}][position][ar]" class="form-control" value="{{ $team['position']['ar'] ?? '' }}">
+                </div>
+                <div class="col-md-6">
+                    <label>الوظيفة (إنجليزي)</label>
+                    <input type="text" name="team_section[{{ $index }}][position][en]" class="form-control" value="{{ $team['position']['en'] ?? '' }}">
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-6">
+                    <label>السيرة الذاتية (عربي)</label>
+                    <textarea name="team_section[{{ $index }}][bio][ar]" class="form-control">{{ $team['bio']['ar'] ?? '' }}</textarea>
+                </div>
+                <div class="col-md-6">
+                    <label>السيرة الذاتية (إنجليزي)</label>
+                    <textarea name="team_section[{{ $index }}][bio][en]" class="form-control">{{ $team['bio']['en'] ?? '' }}</textarea>
+                </div>
+            </div>
+            <button type="button" class="btn btn-danger btn-sm remove-team-item">حذف</button>
+        </div>
+    @endforeach
+</div>
+<button type="button" id="add-team-item" class="btn btn-outline-secondary">إضافة عضو جديد</button>
+
                     <input type="hidden" name="id" value="{{$data->id}}" id="">
                     <div class="col-12">
                         <button type="submit"  class="btn btn-primary">تعديل</button>
@@ -187,6 +270,76 @@
     <script src="{{ asset('assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
     <script src="{{ asset('assets/jquery-time-picker.js') }}"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+
+    <script>
+let historyIndex = {{ count($data->history_section ?? []) }};
+let teamIndex = {{ count($data->team_section ?? []) }};
+
+$('#add-history-item').click(function () {
+    $('#history-section-wrapper').append(`
+        <div class="card p-3 mb-3 border" data-index="${historyIndex}">
+            <div class="row mb-2">
+                <div class="col-md-6"><label>العنوان (عربي)</label><input type="text" name="history_section[${historyIndex}][title][ar]" class="form-control"></div>
+                <div class="col-md-6"><label>العنوان (إنجليزي)</label><input type="text" name="history_section[${historyIndex}][title][en]" class="form-control"></div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-6"><label>الوصف (عربي)</label><textarea name="history_section[${historyIndex}][description][ar]" class="form-control"></textarea></div>
+                <div class="col-md-6"><label>الوصف (إنجليزي)</label><textarea name="history_section[${historyIndex}][description][en]" class="form-control"></textarea></div>
+            </div>
+            <button type="button" class="btn btn-danger btn-sm remove-history-item">حذف</button>
+        </div>
+    `);
+    historyIndex++;
+});
+
+$('#history-section-wrapper').on('click', '.remove-history-item', function () {
+    $(this).closest('.card').remove();
+});
+
+
+$('#add-team-item').click(function () {
+    $('#team-section-wrapper').append(`
+        <div class="card p-3 mb-3 border" data-index="${teamIndex}">
+            <div class="row mb-2">
+                <div class="col-md-12">
+                    <label>صورة العضو</label>
+                    <input type="file" name="team_section[${teamIndex}][image]" class="form-control" onchange="previewImage(this, 'team-preview-${teamIndex}')">
+                    <img id="team-preview-${teamIndex}" style="max-width: 150px; margin-top:10px;">
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-6"><label>الاسم (عربي)</label><input type="text" name="team_section[${teamIndex}][name][ar]" class="form-control"></div>
+                <div class="col-md-6"><label>الاسم (إنجليزي)</label><input type="text" name="team_section[${teamIndex}][name][en]" class="form-control"></div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-6"><label>الوظيفة (عربي)</label><input type="text" name="team_section[${teamIndex}][position][ar]" class="form-control"></div>
+                <div class="col-md-6"><label>الوظيفة (إنجليزي)</label><input type="text" name="team_section[${teamIndex}][position][en]" class="form-control"></div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-6"><label>السيرة الذاتية (عربي)</label><textarea name="team_section[${teamIndex}][bio][ar]" class="form-control"></textarea></div>
+                <div class="col-md-6"><label>السيرة الذاتية (إنجليزي)</label><textarea name="team_section[${teamIndex}][bio][en]" class="form-control"></textarea></div>
+            </div>
+            <button type="button" class="btn btn-danger btn-sm remove-team-item">حذف</button>
+        </div>
+    `);
+    teamIndex++;
+});
+
+$('#team-section-wrapper').on('click', '.remove-team-item', function () {
+    $(this).closest('.card').remove();
+});
+
+function previewImage(input, targetId) {
+    const file = input.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById(targetId).src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+}
+</script>
 
 <script>
       ClassicEditor
