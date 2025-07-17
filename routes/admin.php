@@ -77,3 +77,4 @@ Route::post('site-settings', [SiteSettingController::class, 'update'])->name('ad
  Route::resource('projects', ProjectController::class);
  Route::resource('announcements', AnnouncementController::class);
  Route::delete('/attachments/{attachment}', [AnnouncementController::class, 'attachmentDestroy'])->name('attachments.destroy');
+ Route::resource('reports', \App\Http\Controllers\Admin\ReportController::class);
