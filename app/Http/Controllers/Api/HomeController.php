@@ -78,7 +78,7 @@ class HomeController extends Controller
 
     public function projects(Request $request)
     {
-         $limit = $request->has('limit') ? $request->get('limit') : 1;
+         $limit = $request->has('limit') ? $request->get('limit') : 10;
          $projects = ProjectResource::collection(Project::paginate($limit));
 
         return response()->json([
