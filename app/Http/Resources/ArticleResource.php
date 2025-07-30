@@ -15,7 +15,7 @@ class ArticleResource extends JsonResource
      public function toArray($request)
     {
         $locale = app()->getLocale();
-        $locale = $request->header('set_language', 'ar');
+        $locale = $request->header('Set-Language', 'ar');
 
         return [
             'id' => $this->id,
