@@ -77,6 +77,7 @@ class Kernel extends HttpKernel
         'AdminEditRole' => \App\Http\Middleware\AdminEditRole::class,
         'check.password.change' => \App\Http\Middleware\CheckPasswordChange::class,
 
+        'ApiLanguageHandler' => \App\Http\Middleware\ApiLanguageHandler::class,
 
         'UserAuth' => \App\Http\Middleware\UserAuth::class,
     ];
