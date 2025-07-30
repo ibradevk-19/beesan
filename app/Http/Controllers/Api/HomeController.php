@@ -21,9 +21,11 @@ use App\Models\Contact;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $locale = app()->getLocale();
+        $locale = $request->header('set_language', 'ar');
+
         $siteSetting = SiteSetting::first();
         $hero = [
             'title' => $siteSetting->hero_title[$locale] ?? null,
