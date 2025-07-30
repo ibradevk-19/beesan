@@ -35,4 +35,4 @@ Route::get('/test-lang', function () {
         'translated' => __('messages.welcome'),
         'date' => \Carbon\Carbon::now()->translatedFormat('l j F Y'),
     ]);
-});
+})->middleware('ApiLanguageHandler');
