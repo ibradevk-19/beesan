@@ -28,3 +28,10 @@ Route::get('reports', [HomeController::class, 'reports']);
 Route::post('contact', [HomeController::class, 'contact']);
 Route::get('footer', [HomeController::class, 'footer']);
 
+Route::get('/test-lang', function () {
+    return response()->json([
+        'locale' => app()->getLocale(),
+        'translated' => __('messages.welcome'),
+        'date' => \Carbon\Carbon::now()->translatedFormat('l j F Y'),
+    ]);
+});
