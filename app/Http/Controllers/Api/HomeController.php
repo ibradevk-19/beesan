@@ -25,6 +25,7 @@ class HomeController extends Controller
     {
         $locale = app()->getLocale();
         $locale = $request->header('set_language');
+dd($request->headers->all());
 
         $siteSetting = SiteSetting::first();
         $hero = [
