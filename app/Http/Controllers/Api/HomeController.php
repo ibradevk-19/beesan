@@ -24,7 +24,7 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $locale = app()->getLocale();
-        return  $locale = $request->header('set_language');
+        $locale = $request->header('set_language');
 
         $siteSetting = SiteSetting::first();
         $hero = [
@@ -49,6 +49,7 @@ class HomeController extends Controller
         return response()->json([
             'status' => true,
             'message' => __('Success'),
+            'locale' => $locale,
             'data' => [
                 'hero' => $hero,
                 'statistics' => $statistics,
