@@ -9,6 +9,7 @@ class ReportResource extends JsonResource
     public function toArray($request)
     {
         $locale = app()->getLocale();
+        $locale = $request->header('set_language', 'ar');
 
         return [
             'id' => $this->id,

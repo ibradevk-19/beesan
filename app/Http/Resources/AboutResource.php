@@ -9,6 +9,7 @@ class AboutResource extends JsonResource
     public function toArray($request)
     {
         $locale = app()->getLocale() ?? app()->setLocale('ar');;
+        $locale = $request->header('set_language', 'ar');
 
         return [
             'id' => $this->id,

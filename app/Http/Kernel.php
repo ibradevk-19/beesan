@@ -50,6 +50,8 @@ class Kernel extends HttpKernel
 //            'throttle:180,1',
             \App\Http\Middleware\ApiLanguageHandler::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+                        \App\Http\Middleware\SetLocale::class,
+
         ],
     ];
 
