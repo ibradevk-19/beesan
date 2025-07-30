@@ -12,7 +12,7 @@ class ApiLanguageHandler
      public function handle(Request $request, Closure $next)
     {
          // تحديد اللغة المطلوبة أو اللغة الافتراضية 'ar'
-        $lang = $request->header('set_language', 'ar');
+        $lang = $request->header('Set-Language', 'ar');
 
         // قائمة اللغات المدعومة (يمكنك تخصيصها حسب النظام)
         $supportedLocales = ['ar', 'en'];
