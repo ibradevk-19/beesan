@@ -32,6 +32,7 @@ class ApiLanguageHandler
      public function handle(Request $request, Closure $next)
     {
         $lang = $request->header('set_language'); // اللغة المطلوبة أو 'ar' افتراضيًا
+        dd($lang);
         app()->setLocale($lang);
         \App::setLocale($lang);              // ✅ اللغة الفعلية
         Carbon::setLocale($lang);             // ✅ لتنسيقات التواريخ
