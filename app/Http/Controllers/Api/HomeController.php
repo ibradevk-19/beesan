@@ -24,7 +24,7 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $locale = app()->getLocale();
-        $locale = $request->header('set_language', 'ar');
+        return  $locale = $request->header('set_language');
 
         $siteSetting = SiteSetting::first();
         $hero = [
