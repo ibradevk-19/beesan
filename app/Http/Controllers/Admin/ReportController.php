@@ -26,8 +26,8 @@ class ReportController extends Controller
             'body' => 'required|array',
             'body.ar' => 'required|string',
             'body.en' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp',
-            'file' => 'nullable|file|mimes:pdf,doc,docx',
+            'image' => 'nullable|file',
+            'file' => 'nullable|file',
             'date' => 'required|date',
             'tag' => 'required|in:y_reports,fin_reports,pre_reports',
         ]);
